@@ -16,8 +16,10 @@
         <v-list-item-title>{{ item.text }}</v-list-item-title>
         <v-list-item-subtitle class="mr-10">{{ item.date }}</v-list-item-subtitle>
         <v-list-item-action class="d-flex flex-wrap">
-          <v-btn v-if="!item.done" @click="onDelete" color="yellow"><v-icon>mdi-cart</v-icon>edit</v-btn>
-          <v-btn color="red" @click="onDelete">x</v-btn>
+          <v-btn v-if="!item.done" @click="$emit('onEdit', item.id)" color="yellow"
+            ><v-icon>mdi-cart</v-icon>edit</v-btn
+          >
+          <v-btn color="red" @click="$emit('onDelete', item.id)">x</v-btn>
         </v-list-item-action>
       </v-list-item-content>
     </v-list-item>
@@ -27,7 +29,6 @@
 <script setup>
 import { ref } from 'vue';
 // import TodoItem from '@/components/TodoItem.vue';
-
 defineProps({
   title: String,
   items: {

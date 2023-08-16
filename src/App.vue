@@ -6,7 +6,7 @@
     <TodoInput @addTodo="addTodoList" />
     <TodoList
       v-if="!!dataState.todo.length"
-      :title="`TO DO (${dataState.todo.length})`"
+      :title="`task list (${dataState.todo.length})`"
       :items="dataState.todo"
       @doneItem="checkDone"
       @onDelete="deleteItem"
@@ -18,7 +18,7 @@
       :title="`Done (${dataState.done.length})`"
       :items="dataState.done"
       @doneItem="checkDone"
-      @delItem="deleteItem"
+      @onDelete="deleteItem"
     />
   </v-card>
 </template>
@@ -39,11 +39,12 @@ const dataState = computed(() => ({
 }));
 
 const addTodoList = (text) => {
+  let maxId = data.value.reduce((max, obj) => (obj.id > max ? obj.id : max), -Infinity);
   const obj = {
     text: text,
     date: new Date().toString().slice(4, 24),
     done: false,
-    id: data.value.length + 1,
+    id: ++maxId,
   };
 
   data.value.unshift(obj);
@@ -60,6 +61,7 @@ const deleteItem = (id) => {
   const delItem = data.value.find((item) => item.id === id);
   console.log(delItem);
   data.value.splice(data.value.indexOf(delItem), 1);
+  setLocalData(data.value);
 };
 
 const editItem = (id) => {
@@ -71,6 +73,5 @@ console.log(data.value);
 
 <style scoped>
 .v-card {
-
 }
 </style>
