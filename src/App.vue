@@ -2,24 +2,23 @@
   <h1>My TodoList</h1>
 
   <!-- FORM -->
-  <v-card width="1200px">
+  <v-card width="900px">
     <TodoInput @addTodo="addTodoList" />
     <TodoList
       v-if="!!dataState.todo.length"
-      title="TO DO"
-      :items="data.filter(({ done }) => !done)"
+      :title="`TO DO (${dataState.todo.length})`"
+      :items="dataState.todo"
       @doneItem="checkDone"
-      @delItem="deleteItem"
-      @editItem="editItem"
+      @onDelete="deleteItem"
+      @onEdit="editItem"
     />
-    <h1 v-else-if="!!dataState.done.length">Congratilations! You done all todo</h1>
+    <h1 v-else-if="!!dataState.done.length">Congratulations! You done all todo ({{ dataState.done.length }})</h1>
     <TodoList
       v-if="!!dataState.done.length"
-      title="Done"
-      :items="data.filter(({ done }) => done)"
+      :title="`Done (${dataState.done.length})`"
+      :items="dataState.done"
       @doneItem="checkDone"
       @delItem="deleteItem"
-      @editItem="editItem"
     />
   </v-card>
 </template>
@@ -70,4 +69,8 @@ const editItem = (id) => {
 console.log(data.value);
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-card {
+
+}
+</style>
