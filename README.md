@@ -1,7 +1,12 @@
-# Vue 3 + Vite
+### TO DO LIST
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+*Список завдань реалізований на Vue3 за допомогою vuetify. Використовувалась бібліотека moment.js для роботи з датами та часом, та препроцесор SASS.*
 
-## Recommended IDE Setup
+Це додаток, де можна створювати завдання та спостерігати за їх виконанням у двох окремих списках ("виконаних задач", "невиконаних задач"). 
+Під час створення задачі потрібно вказати лише назву задач, але також там присутня валідація(minValue, maxValue, emptyValue). 
+При створенні задачі, вона одразу потрапляє у список "невиконані завдання". Якщо натиснути на одну із задач у списку, то вона опиняється у іншому списку.
+Також у списках усі задачі пронумеровані й відсортовані по даті створення. 
+Списки задач зберігається в локальному сховищі браузера, що дає змогу зберігатися при оновленні сторінки.
+У списках можна видаляти задачі, а у списку "невиконаних задач" можна відредагувати назву самої задачі.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[DEMO](https://todolist-tony.vercel.app/)
