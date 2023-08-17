@@ -84,9 +84,9 @@ const openDialog = (id) => {
   flagEditDialog.value = true;
 };
 const patchData = (newEntity) => {
-  const updateData = data.value.map((item) => (item.id === newEntity.id ? { ...item, ...newEntity } : item));
-  data.value = [...updateData];
-  setLocalData(updateData);
+  const updatedData = data.value.map((item) => (item.id === newEntity.id ? { ...item, text: newEntity.text } : item));
+  data.value = [...updatedData];
+  setLocalData(data.value);
 };
 </script>
 
