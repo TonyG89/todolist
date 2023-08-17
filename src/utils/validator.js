@@ -3,14 +3,12 @@ const validator = (text) => {
   switch (true) {
     case !text:
     case text.length < 3:
-    case text.length > 50:
-      console.log('false')
+    case text.length > 30:
       return false
     default:
-      console.log('true')
       return true
   }
 };
 
-const validatorRules = computed(() => (v) => (!v ? 'empty field' : v.length < 3 ? 'min 3 symbols' : v.length > 50 ? 'max 50 symbols' : true))
+const validatorRules = computed(() => (v) => (!v ? 'empty field' : v.length < 3 ? 'min 3 symbols' : v.length > 30 ? 'max 30 symbols' : true))
 export { validator, validatorRules }

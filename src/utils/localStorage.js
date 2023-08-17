@@ -28,15 +28,6 @@ export default function (key = 'unnamed store') {
     localStorage.setItem(key, JSON.stringify(data))
   }
 
-  /**
-   * A function to patch local storage.
-   *
-   * @param {Array} data - array of objects.
-   */
-  const patchLocalData = (data) => {
-    localStorage.setItem(key, null)
-    localStorage.setItem(key, JSON.stringify(data))
-  }
 
-  return { getLocalData, setLocalData, patchLocalData }
+  return { getLocalData, setLocalData }
 }
