@@ -29,18 +29,6 @@
     @exitDialog="flagEditDialog = false"
     @editedTask="patchData"
   />
-  <v-footer color="bgThird" border
-    ><div class="mx-auto">
-      <a href="https://www.buymeacoffee.com/glzk"
-        target="_blank"
-          >
-      <h3 class="text-textFirst">
-        <v-icon>mdi-coffee</v-icon>
-        created by Tony
-      </h3>
-      </a>
-    </div>
-  </v-footer>
 </template>
 
 <script setup>
