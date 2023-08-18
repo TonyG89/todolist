@@ -55,7 +55,7 @@ const dataState = computed(() => ({
 }));
 
 const addTodoList = (text) => {
-  let maxId = data.value.reduce((max, obj) => (obj.id > max ? obj.id : max), 1);
+  let maxId = data.value.reduce((max, obj) => (obj.id > max ? obj.id : max), 0);
   const obj = {
     text: text,
     date: new Date(),
