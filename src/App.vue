@@ -55,7 +55,7 @@ const dataState = computed(() => ({
 }));
 
 const addTodoList = (text) => {
-  let maxId = data.value.reduce((max, obj) => (obj.id > max ? obj.id : max), -Infinity);
+  let maxId = data.value.reduce((max, obj) => (obj.id > max ? obj.id : max), 1);
   const obj = {
     text: text,
     date: new Date(),
@@ -84,7 +84,9 @@ const openDialog = (id) => {
   flagEditDialog.value = true;
 };
 const patchData = (newEntity) => {
-  const updatedData = data.value.map((item) => (item.id === newEntity.id ? { ...item, text: newEntity.text } : item));
+  const updatedData = data.value.map((item) => {
+    return item.id === newEntity.id ? { ...item, text: newEntity.text } : item;
+  });
   data.value = [...updatedData];
   setLocalData(data.value);
 };
